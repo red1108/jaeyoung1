@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>갓재용</title>
+  <script src="anime.js"></script>
   <meta charset="utf-8">
   <style>
     .Jae{
@@ -25,6 +26,12 @@
       margin: 4px 2px;
       cursor: pointer;
     }
+    .box{
+      margin-top:100px;
+      width:100px;
+      height:100px;
+      background:black;
+    }
   </style>
 </head>
 <body>
@@ -32,12 +39,28 @@
   </div>
   <ul>
     <li><h1><div class="Jae" style="width:80%">킹재용</div></h1></li>
-    <li><h1><div class="Jae" style="width:30%">망재용</div></h1></li>
-    <li><h1><div class="Jae" style="width:60%">갓재용</div></h1></li>
+    <li><h1><div class="Jae" style="width:80%">망재용</div></h1></li>
+    <li><h1><div class="Jae" style="width:80%">갓재용</div></h1></li>
   </ul>
-
   <button onclick="ChangeFunction()"><div class="firstButton">재떨이의 지지율을 보고싶다면?</div></button>
+  <div class="box"></div>
   <script>
+    anime({
+      targets:'.box',
+      duration:2000,
+      translateX:300,
+    });
+    anime({
+      targets:'.Jae',
+      duration:3000,
+      width:function(el,i,l){
+        return i*10+30+"%";
+      },
+      easing: 'easeInOutQuart',
+      duration: function(el, i, l) {
+        return 1000 + (i * 1000);
+      }
+    });
     function ChangeFunction(){
       var x=document.getElementsByClassName('Jae');
       var wgoal = [40 , 80, 30 ],wpre = [80,30,60];
