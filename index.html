@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>갓재용</title>
+  <script src="anime.js"></script>
+  <meta charset="utf-8">
+  <style>
+    .Jae{
+      color:white;
+      background:black;
+    }
+    .maintitle{
+      font-size:40px;
+      text-shadow:2px 2px #0000f0;
+      text-align:center;
+    }
+    .firstButton{
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    .box{
+      margin-top:100px;
+      width:100px;
+      height:100px;
+      background:black;
+    }
+  </style>
+</head>
+<body>
+  <div class="maintitle">지지율</div>
+  </div>
+  <ul>
+    <li><h1><div class="Jae" style="width:80%">설곽</div></h1></li>
+    <li><h1><div class="Jae" style="width:30%">경곽</div></h1></li>
+    <li><h1><div class="Jae" style="width:60%">대곽</div></h1></li>
+  </ul>
+  <button onclick="ChangeFunction()"><div class="firstButton">새로운 지지율을 보고싶다면?</div></button>
+  <div class="box"></div>
+  <script>
+    anime({
+      targets:'.box',
+      duration:2000,
+      translateX:300,
+      delay:1000,
+    });
+    function ChangeFunction(){
+      var i;
+      var boxpre=['80%','30%','60%'],boxend=['50%','80%','25%'];
+      anime({
+        targets:'.Jae',
+        duration:3000,
+        width:function(el,i,l){
+          return [boxpre[i],boxend[i]];
+        },
+        easing: 'easeInOutQuart',
+        duration: function(el, i, l) {
+          return 1000 + (i * 50);
+        }
+      });
+      /*
+      var x=document.getElementsByClassName('Jae');
+      var wgoal = [40 , 80, 30 ],wpre = [30,40,50];
+      var wtime=0;
+      var id = setInterval(frame, 1);
+      var i;
+      function frame(){
+        if(wtime==1000){clearInterval(id);}
+        else{
+          wtime++;
+          for(i=0;i<3;i++)
+          {
+            x[i].style.width=((wgoal[i]-wpre[i])*wtime/1000+wpre[i])+"%";
+          }
+        }
+        */
+      }
+  </script>
+</body>
+</html>
